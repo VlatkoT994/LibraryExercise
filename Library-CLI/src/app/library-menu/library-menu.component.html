@@ -1,4 +1,35 @@
-<p>library-menu {{ id }}</p>
-<a routerLink="">go home</a>
-<br />
-<a routerLink="/testing">go nowere</a>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">clients</h5>
+    <p class="card-text">
+      Help clients check books in and out and manage their accounts
+    </p>
+    <a routerLink="/libraries" class="card-link btn btn-primary">Start</a>
+  </div>
+</div>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Inventory</h5>
+    <p class="card-text">
+      Manage your inventory
+    </p>
+    <a class="card-link btn btn-primary">Start</a>
+  </div>
+</div>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Edit</h5>
+    <p class="card-text">
+      Edit Library information
+    </p>
+    <a class="card-link btn btn-primary" (click)="startEditing()">Edit</a>
+    <a class="card-link btn btn-primary" (click)="deleteLibrary()">Delete</a>
+  </div>
+</div>
+
+<app-edit-page
+  *ngIf="showEditDialog"
+  [patchRequest]="patchRequest"
+  [objectId]="id"
+  [objectInfo]="dataForEdit"
+></app-edit-page>

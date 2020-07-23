@@ -1,7 +1,36 @@
-<a [routerLink]="['/library', 1]" routerLinkActive="router-link-active"
-  >go to 1</a
->
-<br />
-<a routerLink="">go home</a>
-<br />
-<a routerLink="/testing">go nowere</a>
+<div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">City</th>
+        <th scope="col">Address</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let library of libraryList; index as i"
+        [routerLink]="['/libraries', library.id]"
+        routerLinkActive="router-link-active"
+      >
+        <td>{{ i + 1 }}</td>
+        <td>{{ library.name }}</td>
+        <td>{{ library.city }}</td>
+        <td>{{ library.address }}</td>
+        <td>
+          <button class="btn btn-warning">
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+          </button>
+        </td>
+        <td>
+          <button class="btn btn-danger">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

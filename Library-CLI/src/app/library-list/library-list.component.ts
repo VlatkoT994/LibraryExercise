@@ -1,3 +1,4 @@
+import { ApiService } from './../api.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,8 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./library-list.component.css'],
 })
 export class LibraryListComponent implements OnInit {
-  fromlist = 1;
-  constructor() {}
+  libraryList;
+  constructor(private api: ApiService) {}
+  displayEdit = false;
 
-  ngOnInit() {}
+  testMethod() {
+    console.log('works');
+  }
+  ngOnInit() {
+    this.api.getLibraries().subscribe((res) => {
+      console.log(res);
+      this.libraryList = res;
+    });
+  }
 }

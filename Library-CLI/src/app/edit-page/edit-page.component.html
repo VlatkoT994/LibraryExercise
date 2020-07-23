@@ -1,0 +1,22 @@
+<div>
+  <form *ngFor="let editElement of editingData; index as i">
+    <div class="form-group row">
+      <label for="colFormLabel" class="col-sm-2 col-form-label">{{
+        editElement.key
+      }}</label>
+      <div class="col-sm-9">
+        <input
+          [(ngModel)]="editingData[i].value"
+          [name]="editElement.key"
+          type="text"
+          class="form-control"
+          id="colFormLabel"
+          placeholder="col-form-label"
+        />
+      </div>
+      <button class="btn btn-primary col-sm-1" (click)="patchSingle(i)">
+        patch
+      </button>
+    </div>
+  </form>
+</div>
